@@ -175,6 +175,7 @@ const closeModal = document.getElementById('close-modal');
 closeModal.addEventListener('click', () => {
     modal.close();
 })
+
 // COPY CODE
 
 const copyBtn = document.getElementById('copy-btn');

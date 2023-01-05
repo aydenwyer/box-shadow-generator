@@ -26,6 +26,7 @@
 
     --fw-bold: 700;
     --fw-semi: 600;
+    --fw-medium: 500;
     --fw-regular: 400;
     
     --font-spacing-spread: 2px;
@@ -212,7 +213,7 @@ aside {
 }
 
 .custom-slider p, .custom-text-input label {
-    font-weight: var(--fw-semi);
+    font-weight: var(--fw-medium);
     font-size: var(--fs-400);
 }
 
