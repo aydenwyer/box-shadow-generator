@@ -58,12 +58,23 @@ spreadRadius.addEventListener('input', (e) => {
 
 // SHADOW-COLOR
 
+const shadowColorInput = document.getElementById('shadow-color');
+
 window.onkeyup = keyup;
 
 var shadowColorValue;
 
+shadowColorValue = shadowColorInput.value
 function keyup(e) {
     shadowColorValue = e.target.value;
 
     root.style.setProperty('--shadow-color', shadowColorValue);
 };
+
+// GENERATE CODE BUTTON
+
+const generateCode = document.getElementById('generate-code');
+
+generateCode.addEventListener('click', () => {
+    console.log('box-shadow: ' + horizontalOffsetValue.value + 'px ' + verticalOffsetValue.value + 'px ' + blurRadiusValue.value + 'px ' + spreadRadiusValue.value + 'px ' + shadowColorValue + ';');
+});
