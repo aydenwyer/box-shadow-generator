@@ -11,12 +11,11 @@
     <aside>
         <div class="container">
             <h1>box-shadow</h1>
-            <div class="flex-row">
-                <h3>shadow</h3>
-                <h3>box</h3>
-                <div></div>
+            <div class="flex-row | section-selector">
+                <div id="shadow-selector" class="secondary-btn"><p>shadow</p></div>
+                <div id="box-selector" class="secondary-btn"><p>box</p></div>
             </div>
-            <div class="flex-column | shadow-container">
+            <div class="shadow-container | flex-column">
                 <div class="custom-slider" id="x-offset">
                     <div class="flex-row">
                         <p>x-offset:</p>
@@ -49,13 +48,53 @@
                     <label for="shadow-color">shadow-color:</label>
                     <input type="text" value="rgba(0,0,0,0.1)" placeholder="rgba(0,0,0,0.1)" name="shadow-color" id="shadow-color">
                 </div>
-                <button class="primary-btn" id="generate-code">Generate Code</button>
+                
             </div>
+            <div class="box-container | flex-column hidden">
+                <div class="custom-text-input">
+                    <label for="box-color">box-color:</label>
+                    <input type="text" value="#fff" placeholder="#fff" name="box-color" id="box-color">
+                </div>
+                <div class="custom-text-input">
+                    <label for="background-color">background-color:</label>
+                    <input type="text" value="#fff" placeholder="#fff" name="background-color" id="background-color">
+                </div>
+                <div class="custom-text-input">
+                    <label for="border-color">border-color:</label>
+                    <input type="text" value="transparent" placeholder="transparent" name="border-color" id="border-color">
+                </div>
+                <div class="custom-slider" id="border-thickness">
+                    <div class="flex-row">
+                        <p>border-thickness:</p>
+                        <p ><output id="border-thickness__value">0</output> px;</p>
+                    </div>
+                    <input type="range" id="border-thickness" name="border-thickness" value="0" min="0" max="50" steps="1">
+                </div>
+                <div class="custom-slider" id="border-radius">
+                    <div class="flex-row">
+                        <p>border-radius:</p>
+                        <p ><output id="border-radius__value">0</output> px;</p>
+                    </div>
+                    <input type="range" id="border-radius" name="border-radius" value="0" min="0" max="100" steps="1">
+                </div>
+            </div>
+            <button class="primary-btn" id="generate-code">Generate Code</button>
         </div>
     </aside>
     <main>
         <div id="target-box"></div>
     </main>
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h2>Generated Code</h2>
+            <p>Here is the complete CSS style needed for the box shadow displayed.</p>
+            <div>
+                <input type="text" name="generated-code-output" id="generated-code-output">
+                <button class="copy-btn" id="copy-btn"><img src="./assets/Vector.svg" alt="Copy Code"></button>
+            </div>
+            <button class="primary-btn" id="close-modal">Finish</button>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

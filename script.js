@@ -1,3 +1,22 @@
+// CHANGE SECTION FUNCTIONALITY
+
+const shadowSelector = document.getElementById('shadow-selector');
+const boxSelector = document.getElementById('box-selector');
+const shadowContainer = document.querySelector('.shadow-container');
+const boxContainer = document.querySelector('.box-container');
+
+shadowSelector.addEventListener('click', () => {
+    shadowContainer.classList.remove('hidden');
+    boxContainer.classList.add('hidden');
+})
+
+boxSelector.addEventListener('click', () => {
+    boxContainer.classList.remove('hidden');
+    shadowContainer.classList.add('hidden');
+})
+
+// CHANGING CSS
+
 const root = document.documentElement;
 
 // X-OFFSET
@@ -71,10 +90,100 @@ function keyup(e) {
     root.style.setProperty('--shadow-color', shadowColorValue);
 };
 
+// BOX-COLOR
+
+const boxColorInput = document.getElementById('box-color');
+
+window.onkeyup = keyup;
+
+var boxColorValue;
+
+boxColorValue = boxColorInput.value
+function keyup(e) {
+    boxColorValue = e.target.value;
+
+    root.style.setProperty('--box-color', boxColorValue);
+};
+
+// BG-COLOR
+
+const bgColorInput = document.getElementById('background-color');
+
+window.onkeyup = keyup;
+
+var bgColorValue;
+
+bgColorValue = bgColorInput.value
+function keyup(e) {
+    bgColorValue = e.target.value;
+
+    root.style.setProperty('--bg-color', bgColorValue);
+};
+
+// BORDER-COLOR 
+
+const borderColorInput = document.getElementById('border-color');
+
+window.onkeyup = keyup;
+
+var borderColorValue;
+
+borderColorValue = borderColorInput.value
+function keyup(e) {
+    borderColorValue = e.target.value;
+
+    root.style.setProperty('--border-color', borderColorValue);
+};
+
+// BORDER-THICKNESS
+
+const borderThickness = document.getElementById('border-thickness');
+const borderThicknessValue = document.getElementById('border-thickness__value');
+
+borderThicknessValue.value = borderThickness.value;
+if(borderThickness.value === undefined) {
+    borderThicknessValue.value = 0;
+}
+borderThickness.addEventListener('input', (e) => {
+    borderThicknessValue.value = e.target.value;
+    root.style.setProperty('--border-thickness', e.target.value + 'px');
+})
+
+// BORDER-RADIUS
+
+const borderRadius = document.getElementById('border-radius');
+const borderRadiusValue = document.getElementById('border-radius__value');
+
+borderRadiusValue.value = borderRadius.value;
+if(borderRadius.value === undefined) {
+    borderRadiusValue.value = 0;
+}
+borderRadius.addEventListener('input', (e) => {
+    borderRadiusValue.value = e.target.value;
+    root.style.setProperty('--radius', e.target.value + 'px');
+})
+
 // GENERATE CODE BUTTON
 
 const generateCode = document.getElementById('generate-code');
+const generatedCodeOutput = document.getElementById('generated-code-output');
+var completedStyle;
 
 generateCode.addEventListener('click', () => {
-    console.log('box-shadow: ' + horizontalOffsetValue.value + 'px ' + verticalOffsetValue.value + 'px ' + blurRadiusValue.value + 'px ' + spreadRadiusValue.value + 'px ' + shadowColorValue + ';');
+    completedStyle = 'box-shadow: ' + horizontalOffsetValue.value + 'px ' + verticalOffsetValue.value + 'px ' + blurRadiusValue.value + 'px ' + spreadRadiusValue.value + 'px ' + shadowColorValue + ';';
+
+    generatedCodeOutput.setAttribute('value', completedStyle);
+});
+
+// COPY CODE
+
+const copyBtn = document.getElementById('copy-btn');
+
+copyBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText(generatedCodeOutput.value);
+
+    generatedCodeOutput.setAttribute('value', 'Code copied to clipboard!')
+    setTimeout(() => {
+        generatedCodeOutput.setAttribute('value', completedStyle)
+    }, 2000);
 });
