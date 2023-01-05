@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box-Shadow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside>
+        <div class="container">
+            <h1>box-shadow</h1>
+            <div class="flex-row">
+                <h3>shadow</h3>
+                <h3>box</h3>
+                <div></div>
+            </div>
+            <div class="flex-column | shadow-container">
+                <div class="custom-slider" id="x-offset">
+                    <div class="flex-row">
+                        <p>x-offset:</p>
+                        <p ><output id="x-offset__value">0</output> px;</p>
+                    </div>
+                    <input type="range" id="x-offset" name="x-offset" min="-50" max="50" steps="1">
+                </div>
+                <div class="custom-slider" id="y-offset">
+                    <div class="flex-row">
+                        <p>y-offset:</p>
+                        <p ><output id="y-offset__value">0</output> px;</p>
+                    </div>
+                    <input type="range" id="y-offset" name="y-offset" value="0" min="-50" max="50" steps="1">
+                </div>
+                <div class="custom-slider" id="blur-radius">
+                    <div class="flex-row">
+                        <p>blur-radius:</p>
+                        <p ><output id="blur-radius__value">0</output> px;</p>
+                    </div>
+                    <input type="range" id="blur-radius" name="blur-radius" value="50" min="0" max="100" steps="1">
+                </div>
+                <div class="custom-slider" id="spread-radius">
+                    <div class="flex-row">
+                        <p>spread-radius:</p>
+                        <p ><output id="spread-radius__value">0</output> px;</p>
+                    </div>
+                    <input type="range" id="spread-radius" name="spread-radius" value="0" min="-50" max="50" steps="1">
+                </div>
+                <div class="custom-text-input">
+                    <label for="shadow-color">shadow-color:</label>
+                    <input type="text" value="rgba(0,0,0,0.1)" placeholder="rgba(0,0,0,0.1)" name="shadow-color" id="shadow-color">
+                </div>
+                <button class="primary-btn" id="generate-code">Generate Code</button>
+            </div>
+        </div>
+    </aside>
+    <main>
+        <div id="target-box"></div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

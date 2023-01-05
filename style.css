@@ -1,0 +1,108 @@
+@font-face {
+    font-family: 'Switzer';
+    src: url(./font/Switzer-Variable.ttf);
+}
+
+/* CUSTOM PROPERTIES */
+
+:root {
+    /* GENERAL STYLING */
+
+    --clr-primary-200: rgba(78,132,144,1);
+    --clr-primary-400: rgba(2,73,89,1);
+    --clr-primary-600: rgba(1,38,46,1);
+
+    --clr-neutral-100: rgba(255,255,255);
+    --clr-neutral-200: rgba(242,242,242,1);
+    --clr-neutral-400: rgba(205,205,205,1);
+
+    --fs-400: 1em;
+    --fs-500: 1.125em;
+    --fs-600: 1.5em;
+    --fs-700: 1.75em;
+    --fs-800: 2em;
+
+    --ff-primary: 'Switzer', Arial, sans-serif;
+
+    --fw-bold: 700;
+    --fw-regular: 400;
+    
+    --font-spacing-spread: 20%;
+
+    --primary-radius: .5rem;
+
+    /* CHANGING JS FUNCTIONALITY */
+
+    --x-offset: 0;
+    --y-offset: 0;
+    --blur-radius: 20px;
+    --spread-radius: 0px;
+    --shadow-color: rgba(0,0,0,.1);
+
+    --box-color: #fff;
+    --bg-color: #fff;
+    --border-color: transparent;
+    --border-thickness: 0;
+    --radius: 0;
+}
+
+/* CSS RESET */
+
+*, 
+*::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+#root, #__next {
+    isolation: isolate;
+}
+
+/* UTILITIES */
+
+
+
+/* GENERAL STYLING */
+
+
+
+/* FLUCTUATING SLIDER STYLES */
+
+#target-box {
+    background-color: var(--box-color);
+    border-radius: var(--radius);
+    border: var(--border-thickness) solid var(--border-color);
+    box-shadow: var(--x-offset) var(--y-offset) var(--blur-radius) var(--spread-radius) var(--shadow-color);
+
+    width: 200px;
+    height: 200px;
+}
+
+main {
+    background-color: var(--bg-color);
+}
