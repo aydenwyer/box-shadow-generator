@@ -8,11 +8,15 @@ const boxContainer = document.querySelector('.box-container');
 shadowSelector.addEventListener('click', () => {
     shadowContainer.classList.remove('hidden');
     boxContainer.classList.add('hidden');
+    shadowSelector.classList.add('selected');
+    boxSelector.classList.remove('selected');
 })
 
 boxSelector.addEventListener('click', () => {
     boxContainer.classList.remove('hidden');
     shadowContainer.classList.add('hidden');
+    boxSelector.classList.add('selected');
+    shadowSelector.classList.remove('selected');
 })
 
 // CHANGING CSS
@@ -78,62 +82,50 @@ spreadRadius.addEventListener('input', (e) => {
 // SHADOW-COLOR
 
 const shadowColorInput = document.getElementById('shadow-color');
-
-window.onkeyup = keyup;
-
 var shadowColorValue;
 
 shadowColorValue = shadowColorInput.value
-function keyup(e) {
+shadowColorInput.addEventListener('keyup', (e) => {
     shadowColorValue = e.target.value;
 
     root.style.setProperty('--shadow-color', shadowColorValue);
-};
+})
 
 // BOX-COLOR
 
 const boxColorInput = document.getElementById('box-color');
-
-window.onkeyup = keyup;
-
 var boxColorValue;
 
 boxColorValue = boxColorInput.value
-function keyup(e) {
+boxColorInput.addEventListener('keyup', (e) => {
     boxColorValue = e.target.value;
 
     root.style.setProperty('--box-color', boxColorValue);
-};
+});
 
 // BG-COLOR
 
 const bgColorInput = document.getElementById('background-color');
-
-window.onkeyup = keyup;
-
 var bgColorValue;
 
 bgColorValue = bgColorInput.value
-function keyup(e) {
+bgColorInput.addEventListener('keyup', (e) => {
     bgColorValue = e.target.value;
 
     root.style.setProperty('--bg-color', bgColorValue);
-};
+});
 
 // BORDER-COLOR 
 
 const borderColorInput = document.getElementById('border-color');
-
-window.onkeyup = keyup;
-
 var borderColorValue;
 
 borderColorValue = borderColorInput.value
-function keyup(e) {
+borderColorInput.addEventListener('keyup', (e) => {
     borderColorValue = e.target.value;
 
     root.style.setProperty('--border-color', borderColorValue);
-};
+});
 
 // BORDER-THICKNESS
 
@@ -167,14 +159,22 @@ borderRadius.addEventListener('input', (e) => {
 
 const generateCode = document.getElementById('generate-code');
 const generatedCodeOutput = document.getElementById('generated-code-output');
+const modal = document.querySelector('#modal');
 var completedStyle;
 
 generateCode.addEventListener('click', () => {
     completedStyle = 'box-shadow: ' + horizontalOffsetValue.value + 'px ' + verticalOffsetValue.value + 'px ' + blurRadiusValue.value + 'px ' + spreadRadiusValue.value + 'px ' + shadowColorValue + ';';
 
     generatedCodeOutput.setAttribute('value', completedStyle);
+
+    modal.showModal();
 });
 
+const closeModal = document.getElementById('close-modal');
+
+closeModal.addEventListener('click', () => {
+    modal.close();
+})
 // COPY CODE
 
 const copyBtn = document.getElementById('copy-btn');
