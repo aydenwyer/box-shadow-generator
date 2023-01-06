@@ -3,4 +3,4 @@ As I'm just starting to learn more and more code, I wanted to test my skills in 
 
 Change your attributes, visualize your box shadow, then generate the code to paste into your CSS stylesheet. Enjoy!
 
-https://effortless-salamander-776623.netlify.app
+https://aydenwyer.github.io/box-shadow-generator/
